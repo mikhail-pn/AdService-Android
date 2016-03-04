@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+
+    <string-array name="adActionTypes">
+        <item>Application run</item>
+        <item>Google play</item>
+        <item>Notification</item>
+        <item>Alert</item>
+    </string-array>
+</resources>
