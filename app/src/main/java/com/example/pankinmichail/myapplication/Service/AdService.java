@@ -1,4 +1,4 @@
-package com.example.pankinmichail.myapplication;
+package com.example.pankinmichail.myapplication.Service;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,13 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.example.pankinmichail.myapplication.AlertsManager;
 import com.example.pankinmichail.myapplication.Models.AdAlert;
 import com.example.pankinmichail.myapplication.Models.AdNotification;
 import com.example.pankinmichail.myapplication.Models.AdShortcut;
-import com.example.pankinmichail.myapplication.Service.AdServiceMessages;
+import com.example.pankinmichail.myapplication.NotificationsManager;
+import com.example.pankinmichail.myapplication.SharedPrefsManager;
+import com.example.pankinmichail.myapplication.ShortcutsManager;
 
 import org.parceler.Parcels;
 

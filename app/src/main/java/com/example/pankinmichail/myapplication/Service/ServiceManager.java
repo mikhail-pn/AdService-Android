@@ -4,15 +4,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import android.widget.Toast;
 
-import com.example.pankinmichail.myapplication.AdService;
 import com.example.pankinmichail.myapplication.Common;
 
 import java.lang.ref.WeakReference;
@@ -151,28 +148,6 @@ public class ServiceManager {
 			isServiceBound = false;
 		}
 	}
-
-//	public void startTracking(long id, boolean isAutoPauseFeatureEnabled) {
-//		Message msg = Message.obtain(null, Messages.START_TRACKING, 0, 0);
-//		Bundle bundle = new Bundle();
-//		bundle.putLong(BundleContract.FOLLOW_RIDDEN, id);
-//		bundle.putBoolean(BundleContract.AUTO_PAUSE_TRACKING_ENABLED, isAutoPauseFeatureEnabled);
-//		msg.setData(bundle);
-//		sendMessage(msg);
-//	}
-//
-//	public void updateAutoPauseFeatureState(boolean isEnabled) {
-//		Message msg = Message.obtain(null, Messages.SET_AUTO_PAUSE_FEATURE, 0, 0);
-//		Bundle bundle = new Bundle();
-//		bundle.putBoolean(BundleContract.AUTO_PAUSE_TRACKING_ENABLED, isEnabled);
-//		msg.setData(bundle);
-//		sendMessage(msg);
-//	}
-//
-//	public void showAutoPauseEnabledToast() {
-//		Toast.makeText(context, R.string.auto_pause_enabled, Toast.LENGTH_SHORT).show();
-//	}
-
 }
 
 
