@@ -7,13 +7,16 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.example.pankinmichail.myapplication.AdApp;
 import com.example.pankinmichail.myapplication.AlertsManager;
 import com.example.pankinmichail.myapplication.Models.AdAlert;
 import com.example.pankinmichail.myapplication.Models.AdNotification;
 import com.example.pankinmichail.myapplication.Models.AdShortcut;
 import com.example.pankinmichail.myapplication.NotificationsManager;
+import com.example.pankinmichail.myapplication.R;
 import com.example.pankinmichail.myapplication.SharedPrefsManager;
 import com.example.pankinmichail.myapplication.ShortcutsManager;
 import com.google.gson.Gson;
@@ -43,6 +46,12 @@ public class AdService extends android.app.Service {
         notificationsManager = new NotificationsManager(SharedPrefsManager.getInstance().getNotificationsQueue());
         alertsManager = new AlertsManager(SharedPrefsManager.getInstance().getAlertsQueue());
 
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(AdApp.getInstance())
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Ad service")
+                .setContentText("Running");
+
+        startForeground(1, notificationBuilder.build());
         return START_STICKY;
     }
 
