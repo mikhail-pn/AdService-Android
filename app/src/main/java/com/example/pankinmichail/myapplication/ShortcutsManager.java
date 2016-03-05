@@ -20,7 +20,7 @@ import static com.example.pankinmichail.myapplication.Models.AdAction.ActionType
  */
 public class ShortcutsManager {
     private static final int MAX_SHORTCUTS = 3;
-    private static final int CHECK_INTERVAL_SEC = 70;
+    private static final int CHECK_INTERVAL_SEC = 3;
 
     ArrayList<AdShortcut> shortcutsQueue = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class ShortcutsManager {
     }
 
     private void showOccurShortcuts() {
-        for (int i = shortcutsQueue.size() - 1; i > 0; --i) {
+        for (int i = shortcutsQueue.size() - 1; i >= 0; --i) {
             AdShortcut shortcut = shortcutsQueue.get(i);
             if (shortcut.getShowTime() < System.currentTimeMillis()) {//event  occured
                 shortcutsQueue.remove(i);
@@ -133,6 +133,13 @@ public class ShortcutsManager {
 
     private void prepareForAddNewShortcut(AdShortcut newShortcut) {//bad name :(
         ArrayList<AdShortcut> existsShortcuts = SharedPrefsManager.getInstance().getExistsShortcuts();
+        Collections.sort(existsShortcuts, new Comparator<AdShortcut>() {
+            @Override
+            public int compare(AdShortcut shortcut1, AdShortcut shortcut2) {
+                return Long.compare(shortcut1.getShowTime(), shortcut2.getShowTime());
+            }
+        });
+
         if (existsShortcuts.size() >= MAX_SHORTCUTS) {
             deleteShortcut(existsShortcuts.get(0));
             existsShortcuts.remove(0);
@@ -141,5 +148,4 @@ public class ShortcutsManager {
         existsShortcuts.add(newShortcut);
         SharedPrefsManager.getInstance().saveExistsShortcuts(existsShortcuts);
     }
-
 }

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.MainActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Common"
+                android:id="@+id/textView"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/adActionType"
+                android:spinnerMode="dialog"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/actionData"
+                android:layout_below="@+id/adActionType"
+                android:hint="Data"
+                android:layout_marginTop="10dp"
+                android:text="com.CatTaxi" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set time"
+                android:id="@+id/setTime"
+                android:layout_below="@+id/actionData"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/showTime"
+                android:layout_toEndOf="@+id/showTime" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show time: "
+                android:id="@+id/showTime"
+                android:layout_below="@+id/actionData"
+                android:layout_alignParentLeft="true"
+                android:textSize="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignBottom="@+id/setTime"
+                android:gravity="center_vertical"
+                android:textColor="@color/abc_secondary_text_material_light" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Notifications"
+                android:id="@+id/notificationsText"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/notificationTitle"
+                android:layout_below="@+id/notificationsText"
+                android:hint="Title"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/notificationDescription"
+                android:hint="Description"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/notificationTitle"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add notification"
+                android:id="@+id/addNotification"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/notificationDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Alerts"
+                android:id="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alertTitle"
+                android:layout_below="@+id/textView2"
+                android:hint="Title"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alertDescription"
+                android:hint="Description"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/alertTitle"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add alert"
+                android:id="@+id/addAlert"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/alertDescription" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shortcutName"
+                android:layout_below="@+id/textView4"
+                android:hint="Name"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Shortcuts"
+                android:id="@+id/textView4"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add shortcut"
+                android:id="@+id/addShortcut"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/shortcutName" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

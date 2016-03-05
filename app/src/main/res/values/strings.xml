@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="show_time">"Show time: "</string>
 
 
     <string-array name="adActionTypes">
         <item>Application run</item>
         <item>Google play</item>
-        <item>Notification</item>
-        <item>Alert</item>
+        <item>URL</item>
     </string-array>
 </resources>

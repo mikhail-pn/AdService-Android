@@ -16,7 +16,7 @@ public class AdAlert extends Ad {
 
 	}
 
-	public AdAlert(AdAction action, String description, String title, long showTime) {
+	public AdAlert(String title, String description, AdAction action, long showTime) {
 		this.title = title;
 		this.description = description;
 		setShowTime(showTime);

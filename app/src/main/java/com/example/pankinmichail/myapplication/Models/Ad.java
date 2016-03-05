@@ -12,6 +12,10 @@ public class Ad {
 	AdAction action;
 	long showTime;
 
+	public Ad() {
+
+	}
+
 	public long getShowTime() {
 		return showTime;
 	}

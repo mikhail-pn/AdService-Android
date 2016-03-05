@@ -16,6 +16,7 @@ import com.example.pankinmichail.myapplication.Models.AdShortcut;
 import com.example.pankinmichail.myapplication.NotificationsManager;
 import com.example.pankinmichail.myapplication.SharedPrefsManager;
 import com.example.pankinmichail.myapplication.ShortcutsManager;
+import com.google.gson.Gson;
 
 import org.parceler.Parcels;
 
@@ -90,19 +91,22 @@ public class AdService extends android.app.Service {
 
                 case AdServiceMessages.ADD_ALERT:
                     Log.d(TAG, "Service receive ADD_ALERT message");
-                    AdAlert newAlert = Parcels.unwrap(msg.getData().getParcelable("alert"));
+                    //TODO make with Parcel
+                    AdAlert newAlert = new Gson().fromJson(msg.getData().getString("alert"), AdAlert.class);
                     s.alertsManager.addAlertInQueue(newAlert);
                     break;
 
                 case AdServiceMessages.ADD_SHORTCUT:
                     Log.d(TAG, "Service receive ADD_SHORTCUT message");
-                    AdShortcut newShortcut = Parcels.unwrap(msg.getData().getParcelable("shortcut"));
+                    //TODO make with Parcel
+                    AdShortcut newShortcut = new Gson().fromJson(msg.getData().getString("shortcut"), AdShortcut.class);
                     s.shortcutsManager.addShortcutInQueue(newShortcut);
                     break;
 
                 case AdServiceMessages.ADD_NOTIFICATION:
                     Log.d(TAG, "Service receive ADD_NOTIFICATION message");
-                    AdNotification newNotification = Parcels.unwrap(msg.getData().getParcelable("notification"));
+                    //TODO make with Parcel
+                    AdNotification newNotification = new Gson().fromJson(msg.getData().getString("notification"), AdNotification.class);
                     s.notificationsManager.addNotificationInQueue(newNotification);
                     break;
 
