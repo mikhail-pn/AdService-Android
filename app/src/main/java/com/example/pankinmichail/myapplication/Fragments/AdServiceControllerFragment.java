@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -35,14 +36,25 @@ import butterknife.OnClick;
  * on 05.03.16.
  */
 public class AdServiceControllerFragment extends Fragment {
-    private long selectedShowTime;
-
     @Bind(R.id.adActionType)
     Spinner adActionTypeSelector;
     @Bind(R.id.actionData)
     EditText actionData;
     @Bind(R.id.showTime)
     TextView showTime;
+    @Bind(R.id.alertTitle)
+    EditText alertTitle;
+    @Bind(R.id.alertDescription)
+    EditText alertDescription;
+    @Bind(R.id.notificationTitle)
+    EditText notificationTitle;
+    @Bind(R.id.notificationDescription)
+    EditText notificationDescription;
+    @Bind(R.id.shortcutName)
+    EditText shortcutName;
+
+    private long selectedShowTime;
+
     @OnClick(R.id.setTime)
     public void setTime() {
         Calendar mcurrentTime = Calendar.getInstance();
@@ -60,10 +72,6 @@ public class AdServiceControllerFragment extends Fragment {
         mTimePicker.show();
     }
 
-    @Bind(R.id.alertTitle)
-    EditText alertTitle;
-    @Bind(R.id.alertDescription)
-    EditText alertDescription;
     @OnClick(R.id.addAlert)
     public void addAlert() {
         String title = alertTitle.getText().toString();
@@ -77,10 +85,6 @@ public class AdServiceControllerFragment extends Fragment {
         ((MainActivity) getActivity()).getAdServiceManager().addAlert(alert);
     }
 
-    @Bind(R.id.notificationTitle)
-    EditText notificationTitle;
-    @Bind(R.id.notificationDescription)
-    EditText notificationDescription;
     @OnClick(R.id.addNotification)
     public void addNotification() {
         String title = notificationTitle.getText().toString();
@@ -94,8 +98,6 @@ public class AdServiceControllerFragment extends Fragment {
         ((MainActivity) getActivity()).getAdServiceManager().addNotification(notification);
     }
 
-    @Bind(R.id.shortcutName)
-    EditText shortcutName;
     @OnClick(R.id.addShortcut)
     public void addShortcut() {
         String name = shortcutName.getText().toString();
@@ -123,6 +125,22 @@ public class AdServiceControllerFragment extends Fragment {
 
     private void setupViews() {
         adActionTypeSelector.setAdapter(ArrayAdapter.createFromResource(getActivity(), R.array.adActionTypes, android.R.layout.simple_spinner_dropdown_item));
+
+        adActionTypeSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 2) {
+                    actionData.setText("http://");
+                } else {
+                    actionData.setText("com.vkontakte.android");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private long genDateLongFromHourAndMin(int hour, int minute) {
@@ -142,7 +160,7 @@ public class AdServiceControllerFragment extends Fragment {
         ActionType type = null;
         switch (adActionTypeSelector.getSelectedItemPosition()) {
             case 0:
-            type = ActionType.App;
+                type = ActionType.App;
                 break;
 
             case 1:
