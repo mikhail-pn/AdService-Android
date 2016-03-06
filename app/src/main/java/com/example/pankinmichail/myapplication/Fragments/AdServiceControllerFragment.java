@@ -53,7 +53,7 @@ public class AdServiceControllerFragment extends Fragment {
     @Bind(R.id.shortcutName)
     EditText shortcutName;
 
-    private long selectedShowTime;
+    private long selectedShowTime = 0;
 
     @OnClick(R.id.setTime)
     public void setTime() {
@@ -77,7 +77,7 @@ public class AdServiceControllerFragment extends Fragment {
         String title = alertTitle.getText().toString();
         String description = alertDescription.getText().toString();
 
-        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
+        if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || selectedShowTime == 0) {
             Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
         }
 
@@ -90,7 +90,7 @@ public class AdServiceControllerFragment extends Fragment {
         String title = notificationTitle.getText().toString();
         String description = notificationDescription.getText().toString();
 
-        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
+        if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description) || selectedShowTime == 0) {
             Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
         }
 
@@ -102,7 +102,7 @@ public class AdServiceControllerFragment extends Fragment {
     public void addShortcut() {
         String name = shortcutName.getText().toString();
 
-        if(TextUtils.isEmpty(name)) {
+        if (TextUtils.isEmpty(name) || selectedShowTime == 0) {
             Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
         }
 
