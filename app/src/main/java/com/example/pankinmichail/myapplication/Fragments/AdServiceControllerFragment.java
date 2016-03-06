@@ -4,6 +4,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.pankinmichail.myapplication.Activitys.MainActivity;
 import com.example.pankinmichail.myapplication.Models.AdAction;
@@ -67,6 +69,10 @@ public class AdServiceControllerFragment extends Fragment {
         String title = alertTitle.getText().toString();
         String description = alertDescription.getText().toString();
 
+        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
+            Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
+        }
+
         final AdAlert alert = new AdAlert(title, description, getSelectedAction(), selectedShowTime);
         ((MainActivity) getActivity()).getAdServiceManager().addAlert(alert);
     }
@@ -80,6 +86,10 @@ public class AdServiceControllerFragment extends Fragment {
         String title = notificationTitle.getText().toString();
         String description = notificationDescription.getText().toString();
 
+        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
+            Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
+        }
+
         final AdNotification notification = new AdNotification(title, description, R.mipmap.ic_launcher, getSelectedAction(), selectedShowTime);
         ((MainActivity) getActivity()).getAdServiceManager().addNotification(notification);
     }
@@ -89,6 +99,10 @@ public class AdServiceControllerFragment extends Fragment {
     @OnClick(R.id.addShortcut)
     public void addShortcut() {
         String name = shortcutName.getText().toString();
+
+        if(TextUtils.isEmpty(name)) {
+            Toast.makeText(getActivity(), R.string.fill_req_fields, Toast.LENGTH_SHORT).show();
+        }
 
         final AdShortcut shortcut = new AdShortcut(name, R.mipmap.ic_launcher, getSelectedAction(), selectedShowTime);
         ((MainActivity) getActivity()).getAdServiceManager().addShortcut(shortcut);

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="show_time">"Show time: "</string>
+    <string name="fill_req_fields">Please, fill required fields</string>
 
 
     <string-array name="adActionTypes">
